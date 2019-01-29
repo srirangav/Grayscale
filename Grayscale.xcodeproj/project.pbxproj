@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		263E0A2D21F2A37A00B38AE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263E0A2C21F2A37A00B38AE0 /* AppDelegate.m */; };
+		263E0A2F21F2A37B00B38AE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263E0A2E21F2A37B00B38AE0 /* Assets.xcassets */; };
+		263E0A3221F2A37B00B38AE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263E0A3021F2A37B00B38AE0 /* MainMenu.xib */; };
+		263E0A3521F2A37B00B38AE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263E0A3421F2A37B00B38AE0 /* main.m */; };
+		263E0A3B21F2A3F800B38AE0 /* GrayscaleLaunchAtLoginHelper.app in Copy Helper App */ = {isa = PBXBuildFile; fileRef = 263E0A2921F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		263E0A3E21F2A43200B38AE0 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263E0A3D21F2A43200B38AE0 /* ServiceManagement.framework */; };
+		2661A7E721F16A9900B38AE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661A7E621F16A9900B38AE0 /* AppDelegate.m */; };
+		2661A7E921F16A9B00B38AE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2661A7E821F16A9B00B38AE0 /* Assets.xcassets */; };
+		2661A7EC21F16A9B00B38AE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */; };
+		2661A7EF21F16A9B00B38AE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661A7EE21F16A9B00B38AE0 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		263E0A3A21F2A3DD00B38AE0 /* Copy Helper App */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				263E0A3B21F2A3F800B38AE0 /* GrayscaleLaunchAtLoginHelper.app in Copy Helper App */,
+			);
+			name = "Copy Helper App";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		263E0A2921F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrayscaleLaunchAtLoginHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		263E0A2B21F2A37A00B38AE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		263E0A2C21F2A37A00B38AE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		263E0A2E21F2A37B00B38AE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		263E0A3321F2A37B00B38AE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		263E0A3421F2A37B00B38AE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		263E0A3621F2A37B00B38AE0 /* GrayscaleLaunchAtLoginHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GrayscaleLaunchAtLoginHelper.entitlements; sourceTree = "<group>"; };
+		263E0A3D21F2A43200B38AE0 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		2661A7E221F16A9900B38AE0 /* Grayscale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grayscale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2661A7E521F16A9900B38AE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2661A7E621F16A9900B38AE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2661A7E821F16A9B00B38AE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2661A7ED21F16A9B00B38AE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2661A7EE21F16A9B00B38AE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2661A7F021F16A9B00B38AE0 /* Grayscale.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grayscale.entitlements; sourceTree = "<group>"; };
+		2661A7F821F1701300B38AE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		26BFB658220035C400B38AE0 /* Prefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefs.h; path = Grayscale/Prefs.h; sourceTree = SOURCE_ROOT; };
+		26F0C79722003E1400B38AE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		263E0A2621F2A37A00B38AE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2661A7DF21F16A9900B38AE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				263E0A3E21F2A43200B38AE0 /* ServiceManagement.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		263E0A2A21F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper */ = {
+			isa = PBXGroup;
+			children = (
+				263E0A2B21F2A37A00B38AE0 /* AppDelegate.h */,
+				263E0A2C21F2A37A00B38AE0 /* AppDelegate.m */,
+				263E0A2E21F2A37B00B38AE0 /* Assets.xcassets */,
+				263E0A3021F2A37B00B38AE0 /* MainMenu.xib */,
+				263E0A3321F2A37B00B38AE0 /* Info.plist */,
+				263E0A3421F2A37B00B38AE0 /* main.m */,
+				263E0A3621F2A37B00B38AE0 /* GrayscaleLaunchAtLoginHelper.entitlements */,
+			);
+			path = GrayscaleLaunchAtLoginHelper;
+			sourceTree = "<group>";
+		};
+		263E0A3C21F2A43200B38AE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				263E0A3D21F2A43200B38AE0 /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2661A7D921F16A9900B38AE0 = {
+			isa = PBXGroup;
+			children = (
+				26BFB658220035C400B38AE0 /* Prefs.h */,
+				2661A7E421F16A9900B38AE0 /* Grayscale */,
+				263E0A2A21F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper */,
+				2661A7E321F16A9900B38AE0 /* Products */,
+				263E0A3C21F2A43200B38AE0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2661A7E321F16A9900B38AE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2661A7E221F16A9900B38AE0 /* Grayscale.app */,
+				263E0A2921F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2661A7E421F16A9900B38AE0 /* Grayscale */ = {
+			isa = PBXGroup;
+			children = (
+				2661A7E521F16A9900B38AE0 /* AppDelegate.h */,
+				2661A7E621F16A9900B38AE0 /* AppDelegate.m */,
+				2661A7E821F16A9B00B38AE0 /* Assets.xcassets */,
+				2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */,
+				2661A7ED21F16A9B00B38AE0 /* Info.plist */,
+				2661A7EE21F16A9B00B38AE0 /* main.m */,
+				2661A7F021F16A9B00B38AE0 /* Grayscale.entitlements */,
+			);
+			path = Grayscale;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		263E0A2821F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 263E0A3721F2A37B00B38AE0 /* Build configuration list for PBXNativeTarget "GrayscaleLaunchAtLoginHelper" */;
+			buildPhases = (
+				263E0A2521F2A37A00B38AE0 /* Sources */,
+				263E0A2621F2A37A00B38AE0 /* Frameworks */,
+				263E0A2721F2A37A00B38AE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrayscaleLaunchAtLoginHelper;
+			productName = GrayScaleLaunchAtLoginHelper;
+			productReference = 263E0A2921F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2661A7E121F16A9900B38AE0 /* Grayscale */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2661A7F321F16A9B00B38AE0 /* Build configuration list for PBXNativeTarget "Grayscale" */;
+			buildPhases = (
+				2661A7DE21F16A9900B38AE0 /* Sources */,
+				2661A7DF21F16A9900B38AE0 /* Frameworks */,
+				2661A7E021F16A9900B38AE0 /* Resources */,
+				263E0A3A21F2A3DD00B38AE0 /* Copy Helper App */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Grayscale;
+			productName = Grayscale;
+			productReference = 2661A7E221F16A9900B38AE0 /* Grayscale.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2661A7DA21F16A9900B38AE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Sriranga Veeraraghavan";
+				TargetAttributes = {
+					263E0A2821F2A37A00B38AE0 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					2661A7E121F16A9900B38AE0 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 2661A7DD21F16A9900B38AE0 /* Build configuration list for PBXProject "Grayscale" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2661A7D921F16A9900B38AE0;
+			productRefGroup = 2661A7E321F16A9900B38AE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2661A7E121F16A9900B38AE0 /* Grayscale */,
+				263E0A2821F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		263E0A2721F2A37A00B38AE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				263E0A2F21F2A37B00B38AE0 /* Assets.xcassets in Resources */,
+				263E0A3221F2A37B00B38AE0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2661A7E021F16A9900B38AE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2661A7E921F16A9B00B38AE0 /* Assets.xcassets in Resources */,
+				2661A7EC21F16A9B00B38AE0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		263E0A2521F2A37A00B38AE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				263E0A3521F2A37B00B38AE0 /* main.m in Sources */,
+				263E0A2D21F2A37A00B38AE0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2661A7DE21F16A9900B38AE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2661A7EF21F16A9B00B38AE0 /* main.m in Sources */,
+				2661A7E721F16A9900B38AE0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		263E0A3021F2A37B00B38AE0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26F0C79722003E1400B38AE0 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2661A7F821F1701300B38AE0 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		263E0A3821F2A37B00B38AE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GrayScaleLaunchAtLoginHelper/GrayScaleLaunchAtLoginHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CLN8R9E6QM;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GrayScaleLaunchAtLoginHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.GrayScaleLaunchAtLoginHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		263E0A3921F2A37B00B38AE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GrayScaleLaunchAtLoginHelper/GrayScaleLaunchAtLoginHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CLN8R9E6QM;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GrayScaleLaunchAtLoginHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.GrayScaleLaunchAtLoginHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2661A7F121F16A9B00B38AE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2661A7F221F16A9B00B38AE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2661A7F421F16A9B00B38AE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Grayscale/Grayscale.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CLN8R9E6QM;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Grayscale/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.Grayscale;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		2661A7F521F16A9B00B38AE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Grayscale/Grayscale.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CLN8R9E6QM;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Grayscale/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.Grayscale;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		263E0A3721F2A37B00B38AE0 /* Build configuration list for PBXNativeTarget "GrayscaleLaunchAtLoginHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				263E0A3821F2A37B00B38AE0 /* Debug */,
+				263E0A3921F2A37B00B38AE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2661A7DD21F16A9900B38AE0 /* Build configuration list for PBXProject "Grayscale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2661A7F121F16A9B00B38AE0 /* Debug */,
+				2661A7F221F16A9B00B38AE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2661A7F321F16A9B00B38AE0 /* Build configuration list for PBXNativeTarget "Grayscale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2661A7F421F16A9B00B38AE0 /* Debug */,
+				2661A7F521F16A9B00B38AE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2661A7DA21F16A9900B38AE0 /* Project object */;
+}
