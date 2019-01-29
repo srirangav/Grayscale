@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
+            <connections>
+                <outlet property="GSMenu" destination="mP3-S2-79c" id="EmB-mN-RRc"/>
+                <outlet property="GSMenuItemLaunchAtLogin" destination="Vcs-jR-gTA" id="r6T-Go-dQP"/>
+                <outlet property="GSMenuItemQuit" destination="q2D-P3-yOz" id="A5I-dB-zKe"/>
+                <outlet property="GSMenuItemToggleGrayScale" destination="qyW-1p-0hD" id="AzE-wo-957"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu id="mP3-S2-79c" userLabel="GSMenu">
+            <items>
+                <menuItem title="Grayscale" id="qyW-1p-0hD" userLabel="Grayscale">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="HDn-WA-iUG"/>
+                <menuItem title="Start on Login" id="Vcs-jR-gTA" userLabel="Start on Login">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="7Vw-wz-nzE"/>
+                <menuItem title="Quit" id="q2D-P3-yOz" userLabel="Quit">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="terminate:" target="-2" id="J3d-ES-otF"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+    </objects>
+</document>
