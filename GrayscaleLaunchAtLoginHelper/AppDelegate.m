@@ -43,34 +43,12 @@ static int gDelayBeforeQuit = 15;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     BOOL alreadyRunning = NO;
-    BOOL isActive = NO;
-    BOOL launchAtLogin = YES;
+    //BOOL isActive = NO;
     NSArray *running = nil;
     NSString *path = nil;
     NSString *newPath = nil;
     NSMutableArray *pathComponents = nil;
     NSRunningApplication *app = nil;
-    NSUserDefaults *GSDefaults;
-    
-    /*
-        Create a preference group to share preferences with the login
-        helper app:
-        https://stackoverflow.com/questions/14014417/reading-nsuserdefaults-from-helper-app-in-the-sandbox
-     */
-
-    GSDefaults = [[NSUserDefaults alloc] initWithSuiteName: gAppGroup];
-    
-    /* Get the user's preference for launching the app at login */
-    
-    launchAtLogin = [GSDefaults boolForKey: gPrefLaunchAtLogin];
-
-    /* If the user doesn't want the app launched at login, terminate */
-    
-    if (!launchAtLogin)
-    {
-        sleep(gDelayBeforeQuit);
-        [self actionTerminate];
-    }
     
     /*
         Check if main app is already running; if yes, do nothing and terminate
@@ -92,13 +70,12 @@ static int gDelayBeforeQuit = 15;
             if ([[app bundleIdentifier] isEqualToString: gAppBundle])
             {
                 alreadyRunning = YES;
-                isActive = [app isActive];
                 break;
             }
         }
     }
     
-    if (!alreadyRunning || !isActive)
+    if (!alreadyRunning)
     {
         path = [[NSBundle mainBundle] bundlePath];
         pathComponents = [NSMutableArray arrayWithArray: [path pathComponents]];
@@ -121,7 +98,6 @@ static int gDelayBeforeQuit = 15;
         [self actionTerminate];
     }
 }
-
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {

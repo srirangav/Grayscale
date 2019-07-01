@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2612A625220157D200B38AE0 /* CoreBrightness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2612A624220157D200B38AE0 /* CoreBrightness.framework */; };
 		263E0A2D21F2A37A00B38AE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263E0A2C21F2A37A00B38AE0 /* AppDelegate.m */; };
 		263E0A2F21F2A37B00B38AE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263E0A2E21F2A37B00B38AE0 /* Assets.xcassets */; };
 		263E0A3221F2A37B00B38AE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263E0A3021F2A37B00B38AE0 /* MainMenu.xib */; };
@@ -34,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2612A624220157D200B38AE0 /* CoreBrightness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBrightness.framework; path = ../../../../../../System/Library/PrivateFrameworks/CoreBrightness.framework; sourceTree = "<group>"; };
 		263E0A2921F2A37A00B38AE0 /* GrayscaleLaunchAtLoginHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrayscaleLaunchAtLoginHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		263E0A2B21F2A37A00B38AE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		263E0A2C21F2A37A00B38AE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,6 +44,8 @@
 		263E0A3421F2A37B00B38AE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		263E0A3621F2A37B00B38AE0 /* GrayscaleLaunchAtLoginHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GrayscaleLaunchAtLoginHelper.entitlements; sourceTree = "<group>"; };
 		263E0A3D21F2A43200B38AE0 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		265F84D122C8A28F00B38AE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		265F84D222C8A28F00B38AE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2661A7E221F16A9900B38AE0 /* Grayscale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grayscale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2661A7E521F16A9900B38AE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2661A7E621F16A9900B38AE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,9 +53,7 @@
 		2661A7ED21F16A9B00B38AE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2661A7EE21F16A9B00B38AE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2661A7F021F16A9B00B38AE0 /* Grayscale.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grayscale.entitlements; sourceTree = "<group>"; };
-		2661A7F821F1701300B38AE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		26BFB658220035C400B38AE0 /* Prefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefs.h; path = Grayscale/Prefs.h; sourceTree = SOURCE_ROOT; };
-		26F0C79722003E1400B38AE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2612A625220157D200B38AE0 /* CoreBrightness.framework in Frameworks */,
 				263E0A3E21F2A43200B38AE0 /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +93,7 @@
 		263E0A3C21F2A43200B38AE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2612A624220157D200B38AE0 /* CoreBrightness.framework */,
 				263E0A3D21F2A43200B38AE0 /* ServiceManagement.framework */,
 			);
 			name = Frameworks;
@@ -173,7 +177,7 @@
 		2661A7DA21F16A9900B38AE0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Sriranga Veeraraghavan";
 				TargetAttributes = {
 					263E0A2821F2A37A00B38AE0 = {
@@ -212,6 +216,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2661A7D921F16A9900B38AE0;
 			productRefGroup = 2661A7E321F16A9900B38AE0 /* Products */;
@@ -270,7 +275,7 @@
 		263E0A3021F2A37B00B38AE0 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				26F0C79722003E1400B38AE0 /* en */,
+				265F84D222C8A28F00B38AE0 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -278,7 +283,7 @@
 		2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2661A7F821F1701300B38AE0 /* en */,
+				265F84D122C8A28F00B38AE0 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -291,8 +296,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GrayScaleLaunchAtLoginHelper/GrayScaleLaunchAtLoginHelper.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -314,8 +319,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GrayScaleLaunchAtLoginHelper/GrayScaleLaunchAtLoginHelper.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -448,8 +453,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Grayscale/Grayscale.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -462,6 +467,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.Grayscale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Debug;
 		};
@@ -470,8 +479,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Grayscale/Grayscale.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = CLN8R9E6QM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -484,6 +493,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.Grayscale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Release;
 		};

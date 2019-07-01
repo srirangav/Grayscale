@@ -39,7 +39,7 @@ NSString *gPrefLaunchAtLogin = @"LaunchAtLogin";
 NSString *gAppName = @"Grayscale";
 NSString *gAppBundle = @"org.calalum.ranga.Grayscale";
 NSString *gHelperAppBundle = @"org.calalum.ranga.GrayScaleLaunchAtLoginHelper";
-NSString *gAppGroup = @"CLN8R9E6QM.org.calalum.ranga.GrayscaleGroup";
+NSString *gAppGroup = @"B4R2VVPSF8.org.calalum.ranga.GrayscaleGroup";
 
 /* Helper app termination message */
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,7 +15,6 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="GSMenu" destination="mP3-S2-79c" id="EmB-mN-RRc"/>
-                <outlet property="GSMenuItemLaunchAtLogin" destination="Vcs-jR-gTA" id="r6T-Go-dQP"/>
                 <outlet property="GSMenuItemQuit" destination="q2D-P3-yOz" id="A5I-dB-zKe"/>
                 <outlet property="GSMenuItemToggleGrayScale" destination="qyW-1p-0hD" id="AzE-wo-957"/>
             </connections>
@@ -27,10 +26,6 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="HDn-WA-iUG"/>
-                <menuItem title="Start on Login" id="Vcs-jR-gTA" userLabel="Start on Login">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="7Vw-wz-nzE"/>
                 <menuItem title="Quit" id="q2D-P3-yOz" userLabel="Quit">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>

@@ -32,14 +32,11 @@
 {
     IBOutlet NSMenu *GSMenu;
     IBOutlet NSMenuItem *GSMenuItemToggleGrayScale;
-    IBOutlet NSMenuItem *GSMenuItemLaunchAtLogin;
     IBOutlet NSMenuItem *GSMenuItemQuit;
     NSUserDefaults *GSDefaults;
     BOOL grayScale;
-    BOOL launchAtLogin;
 }
 
 - (void) actionToggleGrayScale: (id)sender;
-- (void) actionLaunchAtLogin: (id)sender;
 
 @end

@@ -33,7 +33,6 @@
 
 /* external functions */
 
-CG_EXTERN bool CGDisplayUsesForceToGray(void);
 CG_EXTERN void CGDisplayForceToGray(bool forceToGray);
 
 /* Constants */
@@ -55,13 +54,10 @@ NSString *gMenuTitle = @"GS";
     NSArray *apps = nil;
     NSRunningApplication *app = nil;
     BOOL startedAtLogin = FALSE;
-    BOOL isDisplayInGrayScale = FALSE;
-
+    
     /*
-        Create the status item and set its icon:
+        Create the status item:
         http://preserve.mactech.com/articles/mactech/Vol.22/22.02/Menulet/index.html
-     
-        See also:
         http://www.sonsothunder.com/devres/livecode/tutorials/StatusMenu.html
      */
     
@@ -79,40 +75,27 @@ NSString *gMenuTitle = @"GS";
 
     GSDefaults = [[NSUserDefaults alloc] initWithSuiteName: gAppGroup];
 
-    /* Get the user's preferences for displaying the date, day, and time */
+    /* Get the user's preferences */
     
     grayScale = [GSDefaults boolForKey: gPrefGrayScale];
-    launchAtLogin = [GSDefaults boolForKey: gPrefLaunchAtLogin];
-
+    
     /* Set the actions for the menu items */
 
     [GSMenuItemToggleGrayScale setAction: @selector(actionToggleGrayScale:)];
-    [GSMenuItemLaunchAtLogin setAction: @selector(actionLaunchAtLogin:)];
-
+    
     /*
         Set the state of (checkmark) of the menu items based on the user's
         preferences
      */
 
     [GSMenuItemToggleGrayScale setState: (grayScale ? NSOnState : NSOffState)];
-    [GSMenuItemLaunchAtLogin setState: (launchAtLogin ? NSOnState : NSOffState)];
-    
-    /* Determine whether the display is currently in grayscale mode */
-    
-    isDisplayInGrayScale = CGDisplayUsesForceToGray();
     
     /*
-        If the user's requested display mode does not match the display's
-        current mode, switch the display mode to the user's requested mode.
-     
-        See:
+        Set the display mode based on the user's preferences:
         https://apple.stackexchange.com/questions/240446/how-to-enable-disable-grayscale-mode-in-accessibility-via-terminal-app#240449
      */
     
-    if (grayScale != isDisplayInGrayScale)
-    {
-        CGDisplayForceToGray(grayScale);
-    }
+    CGDisplayForceToGray(grayScale);
     
     /*
         Terminate the helper if it is running:
@@ -120,7 +103,8 @@ NSString *gMenuTitle = @"GS";
      */
     
     apps = [[NSWorkspace sharedWorkspace] runningApplications];
-    if (apps != nil) {
+    if (apps != nil)
+    {
         for (app in apps)
         {
             if ([app.bundleIdentifier isEqualToString: gHelperAppBundle])
@@ -137,6 +121,9 @@ NSString *gMenuTitle = @"GS";
          postNotificationName: gMsgTerminate
          object: [[NSBundle mainBundle] bundleIdentifier]];
     }
+    
+    SMLoginItemSetEnabled ((__bridge CFStringRef)gHelperAppBundle,
+                           TRUE);
 }
 
 - (void)awakeFromNib: (NSNotification *)aNotification
@@ -178,43 +165,6 @@ NSString *gMenuTitle = @"GS";
      */
     
     CGDisplayForceToGray(grayScale);
-}
-
-/*
-    actionLaunchAtLogin - actions to take when the launch at login menu item
-                          is clicked
- */
-
-- (void) actionLaunchAtLogin: (id)sender
-{
-    /* Toggle the setting for whether we should launch at login */
-    
-    launchAtLogin = !launchAtLogin;
-    
-    /* Update the user's preferences */
-    
-    [GSDefaults setBool: launchAtLogin forKey: gPrefLaunchAtLogin];
-    
-    /*
-        Show a checkmark before this menu item if we should launch at login:
-        https://stackoverflow.com/questions/2176639/how-to-add-a-check-mark-to-an-nsmenuitem
-     */
-    
-    [GSMenuItemLaunchAtLogin setState: (launchAtLogin ? NSOnState : NSOffState)];
-    
-    if (!SMLoginItemSetEnabled ((__bridge CFStringRef)gHelperAppBundle,
-                                launchAtLogin))
-    {
-        NSAlert *alert =
-        [NSAlert alertWithMessageText: @"An error ocurred"
-                        defaultButton: @"OK"
-                      alternateButton: nil
-                          otherButton: nil
-            informativeTextWithFormat: (launchAtLogin ?
-                                        @"Can't add helper to login items." :
-                                        @"Can't remove helper from login items." )];
-        [alert runModal];
-    }
 }
 
 @end
