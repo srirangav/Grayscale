@@ -4,6 +4,7 @@
     History:
  
     v. 1.0.0 (01/17/2019) - Initial version
+    v. 1.1.0 (07/22/2109) - Add nightshift and darkmode support
  
     Copyright (c) 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
@@ -33,7 +34,16 @@
 
 /* external functions */
 
-CG_EXTERN void CGDisplayForceToGray(bool forceToGray);
+CG_EXTERN void CGDisplayForceToGray(BOOL forceToGray);
+
+/*
+    Private APIs for setting dark mode:
+    https://gist.github.com/avaidyam/6d0e3605cf85b10f4d0f9d654518e984
+    https://saagarjha.com/blog/2018/12/01/scheduling-dark-mode/
+ */
+
+extern BOOL SLSGetAppearanceThemeLegacy(void);
+extern BOOL SLSSetAppearanceThemeNotifying(BOOL mode, BOOL notifyListeners);
 
 /* Constants */
 
@@ -68,6 +78,36 @@ NSString *gMenuTitle = @"GS";
     [self.statusItem setTitle: gMenuTitle];
   
     /*
+        Get the current interface setting mode - light / dark. Based on:
+        https://saagarjha.com/blog/2018/12/01/scheduling-dark-mode/
+        https://github.com/mafredri/macos-darkmode/blob/master/cmd/darkmode/main.go
+     */
+    
+    darkMode = SLSGetAppearanceThemeLegacy();
+    
+    /*
+          Set the current status of night shift. See:
+          https://github.com/jenghis/nshift/blob/master/nshift/main.m
+          https://github.com/elanini/NightShifter/blob/master/CBBlueLightClient.h
+     */
+    
+    nightShift = FALSE;
+    nightShiftStrength = 0.0;
+    
+    GSBlueLightClient = [[CBBlueLightClient alloc] init];
+    if (GSBlueLightClient != nil)
+    {
+        [GSBlueLightClient getStrength: &nightShiftStrength];
+        
+        /* The night shift strength should be between 0-1 */
+        
+        if (nightShiftStrength > 1.0)
+        {
+            nightShiftStrength = 1.0;
+        }
+    }
+    
+    /*
         Create a preference group to share preferences with the login
         helper app:
         https://stackoverflow.com/questions/14014417/reading-nsuserdefaults-from-helper-app-in-the-sandbox
@@ -82,13 +122,28 @@ NSString *gMenuTitle = @"GS";
     /* Set the actions for the menu items */
 
     [GSMenuItemToggleGrayScale setAction: @selector(actionToggleGrayScale:)];
+    [GSMenuItemToggleNightShift setAction: @selector(actionToggleNightShift:)];
+    [GSMenuItemNightShiftSlider setAction:
+        @selector(actionNightShiftSliderValueChanged:)];
+    [GSMenuItemToggleDarkMode setAction: @selector(actionToggleDarkMode:)];
     
     /*
         Set the state of (checkmark) of the menu items based on the user's
-        preferences
+        preferences:
+     
+        1. Gray Scale, Night Shift and Dark Mode are based on the current
+           user preferences
+        2. The Night Shift slider should be enabled only when Night Shift
+           is enabled.
+        3. The value of the Night Shift slider should be scaled up to between
+           1 and 100
      */
 
     [GSMenuItemToggleGrayScale setState: (grayScale ? NSOnState : NSOffState)];
+    [GSMenuItemToggleNightShift setState: (nightShift ? NSOnState : NSOffState)];
+    [GSMenuItemNightShiftSlider setEnabled: nightShift];
+    [GSMenuItemNightShiftSlider setFloatValue: nightShiftStrength*100];
+    [GSMenuItemToggleDarkMode setState: (darkMode ? NSOnState : NSOffState)];
     
     /*
         Set the display mode based on the user's preferences:
@@ -122,8 +177,8 @@ NSString *gMenuTitle = @"GS";
          object: [[NSBundle mainBundle] bundleIdentifier]];
     }
     
-    SMLoginItemSetEnabled ((__bridge CFStringRef)gHelperAppBundle,
-                           TRUE);
+    SMLoginItemSetEnabled((__bridge CFStringRef)gHelperAppBundle,
+                          TRUE);
 }
 
 - (void)awakeFromNib: (NSNotification *)aNotification
@@ -165,6 +220,108 @@ NSString *gMenuTitle = @"GS";
      */
     
     CGDisplayForceToGray(grayScale);
+}
+
+/*
+    actionToggleDarkMode - actions to take when the darkmode menu item
+                           is clicked
+ */
+
+- (void) actionToggleDarkMode: (id)sender
+{
+    /* Toggle the setting for whether dark mode is enabled */
+    
+    darkMode = !darkMode;
+    
+    /*
+        Show a checkmark before this menu item if the display should be
+        in grayscale:
+        https://stackoverflow.com/questions/2176639/how-to-add-a-check-mark-to-an-nsmenuitem
+     */
+    
+    [GSMenuItemToggleDarkMode setState: (darkMode ? NSOnState : NSOffState)];
+    
+    /*
+        Toggle darkmode:
+        https://github.com/mafredri/macos-darkmode/blob/master/cmd/darkmode/main.go
+        https://saagarjha.com/blog/2018/12/01/scheduling-dark-mode/
+     */
+    
+    SLSSetAppearanceThemeNotifying(darkMode, true);
+}
+
+/*
+    actionToggleNightShift - actions to take when the nightshift menu item
+                             is clicked
+ */
+
+
+- (void) actionToggleNightShift: (id)sender
+{
+    /* Toggle the setting for whether nightsift is enabled */
+    
+    nightShift = !nightShift;
+    
+    /*
+        Show a checkmark before this menu item if the display should be
+        in grayscale:
+        https://stackoverflow.com/questions/2176639/how-to-add-a-check-mark-to-an-nsmenuitem
+     */
+    
+    [GSMenuItemToggleNightShift setState: (nightShift ? NSOnState : NSOffState)];
+
+    /* Toogle whether the slider is enabled */
+    
+    [GSMenuItemNightShiftSlider setEnabled: nightShift];
+
+    [self updateNightShift];
+}
+
+- (void) actionNightShiftSliderValueChanged: (id)sender
+{
+    NSEvent *event = nil;
+    
+    event = [[NSApplication sharedApplication] currentEvent];
+
+    /*
+        Update the night shift strength only when the user has finished
+        selecting the new value.  See:
+    https://stackoverflow.com/questions/9416903/determine-when-nsslider-knob-is-let-go-in-continuous-mode#
+     */
+    
+    switch (event.type)
+    {
+        case NSEventTypeLeftMouseUp:
+        case NSEventTypeRightMouseUp:
+
+            /*
+                Get the requested night shift strength and scale it down to
+                between 0 and 1
+             */
+            
+            nightShiftStrength = [GSMenuItemNightShiftSlider floatValue] / 100;
+            [self updateNightShift];
+            break;
+        default:
+            break;
+    }
+}
+
+/* updateNightShift - update the current night shift strength */
+
+- (void) updateNightShift
+{
+    /*
+        Toggle night shift.  See:
+        https://github.com/jenghis/nshift/blob/master/nshift/main.m
+     */
+    
+    if (nightShift && nightShiftStrength != 0.0)
+    {
+        [GSBlueLightClient setStrength: nightShiftStrength commit: TRUE];
+    }
+    
+    [GSBlueLightClient setEnabled: nightShift];
 }
 
 @end

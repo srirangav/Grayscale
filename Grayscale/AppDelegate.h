@@ -4,6 +4,7 @@
     History:
  
     v. 1.0.0 (01/17/2019) - Initial version
+    v. 1.1.0 (07/22/2019) - Add night shift and dark mode support
  
     Copyright (c) 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
@@ -27,16 +28,28 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import "CBBlueLightClient.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     IBOutlet NSMenu *GSMenu;
     IBOutlet NSMenuItem *GSMenuItemToggleGrayScale;
+    IBOutlet NSMenuItem *GSMenuItemToggleNightShift;
+    IBOutlet NSSlider *GSMenuItemNightShiftSlider;
+    IBOutlet NSMenuItem *GSMenuItemToggleDarkMode;
     IBOutlet NSMenuItem *GSMenuItemQuit;
     NSUserDefaults *GSDefaults;
+    CBBlueLightClient *GSBlueLightClient;
+    float nightShiftStrength;
     BOOL grayScale;
+    BOOL nightShift;
+    BOOL darkMode;
 }
 
 - (void) actionToggleGrayScale: (id)sender;
+- (void) actionToggleNightShift: (id)sender;
+- (void) actionNightShiftSliderValueChanged: (id)sender;
+- (void) updateNightShift;
+- (void) actionToggleDarkMode: (id)sender;
 
 @end

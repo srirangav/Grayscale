@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,8 +16,11 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="GSMenu" destination="mP3-S2-79c" id="EmB-mN-RRc"/>
+                <outlet property="GSMenuItemNightShiftSlider" destination="n5w-VU-ez6" id="9kZ-gc-YyY"/>
                 <outlet property="GSMenuItemQuit" destination="q2D-P3-yOz" id="A5I-dB-zKe"/>
+                <outlet property="GSMenuItemToggleDarkMode" destination="E57-la-6Gp" id="LMR-NN-04B"/>
                 <outlet property="GSMenuItemToggleGrayScale" destination="qyW-1p-0hD" id="AzE-wo-957"/>
+                <outlet property="GSMenuItemToggleNightShift" destination="FCx-rp-Hs2" id="qhX-Nz-fdC"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -25,7 +29,21 @@
                 <menuItem title="Grayscale" id="qyW-1p-0hD" userLabel="Grayscale">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="HDn-WA-iUG"/>
+                <menuItem isSeparatorItem="YES" id="Vmj-cE-8M6"/>
+                <menuItem title="Night Shift" id="FCx-rp-Hs2">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item" id="gnX-7t-VnD">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <outlet property="view" destination="n5w-VU-ez6" id="L20-9e-yTf"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="ktv-8M-KsK"/>
+                <menuItem title="Dark Mode" id="E57-la-6Gp">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Gv7-dm-Zau"/>
                 <menuItem title="Quit" id="q2D-P3-yOz" userLabel="Quit">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -34,5 +52,11 @@
                 </menuItem>
             </items>
         </menu>
+        <slider verticalHuggingPriority="750" id="n5w-VU-ez6">
+            <rect key="frame" x="0.0" y="0.0" width="75" height="18"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <sliderCell key="cell" controlSize="small" continuous="YES" state="on" alignment="left" minValue="1" maxValue="100" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="3" sliderType="linear" id="JxU-al-MNn"/>
+            <point key="canvasLocation" x="126.5" y="284.5"/>
+        </slider>
     </objects>
 </document>

@@ -18,6 +18,7 @@
 		2661A7E921F16A9B00B38AE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2661A7E821F16A9B00B38AE0 /* Assets.xcassets */; };
 		2661A7EC21F16A9B00B38AE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */; };
 		2661A7EF21F16A9B00B38AE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661A7EE21F16A9B00B38AE0 /* main.m */; };
+		26C4556422E30ACE00B38AE0 /* SkyLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C4556322E30ACE00B38AE0 /* SkyLight.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,7 +54,9 @@
 		2661A7ED21F16A9B00B38AE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2661A7EE21F16A9B00B38AE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2661A7F021F16A9B00B38AE0 /* Grayscale.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grayscale.entitlements; sourceTree = "<group>"; };
+		267BC38622E671EF00B38AE0 /* CBBlueLightClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBlueLightClient.h; sourceTree = "<group>"; };
 		26BFB658220035C400B38AE0 /* Prefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefs.h; path = Grayscale/Prefs.h; sourceTree = SOURCE_ROOT; };
+		26C4556322E30ACE00B38AE0 /* SkyLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyLight.framework; path = ../../../../../../System/Library/PrivateFrameworks/SkyLight.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C4556422E30ACE00B38AE0 /* SkyLight.framework in Frameworks */,
 				2612A625220157D200B38AE0 /* CoreBrightness.framework in Frameworks */,
 				263E0A3E21F2A43200B38AE0 /* ServiceManagement.framework in Frameworks */,
 			);
@@ -93,6 +97,7 @@
 		263E0A3C21F2A43200B38AE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26C4556322E30ACE00B38AE0 /* SkyLight.framework */,
 				2612A624220157D200B38AE0 /* CoreBrightness.framework */,
 				263E0A3D21F2A43200B38AE0 /* ServiceManagement.framework */,
 			);
@@ -124,6 +129,7 @@
 			children = (
 				2661A7E521F16A9900B38AE0 /* AppDelegate.h */,
 				2661A7E621F16A9900B38AE0 /* AppDelegate.m */,
+				267BC38622E671EF00B38AE0 /* CBBlueLightClient.h */,
 				2661A7E821F16A9B00B38AE0 /* Assets.xcassets */,
 				2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */,
 				2661A7ED21F16A9B00B38AE0 /* Info.plist */,
@@ -204,7 +210,7 @@
 								enabled = 1;
 							};
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -388,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -441,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
