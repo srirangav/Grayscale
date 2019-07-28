@@ -4,7 +4,8 @@
     History:
  
     v. 1.0.0 (01/17/2019) - Initial version
-    v. 1.1.0 (07/22/2109) - Add nightshift and darkmode support
+    v. 1.1.0 (07/22/2019) - Add nightshift and darkmode support
+    v. 1.1.1 (07/27/2019) - Add brightness support, fixes for MacOSX 10.14
  
     Copyright (c) 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
@@ -31,6 +32,7 @@
 #import <ServiceManagement/ServiceManagement.h>
 #import "AppDelegate.h"
 #import "Prefs.h"
+#import "DisplayBrightness.h"
 
 /* external functions */
 
@@ -73,10 +75,9 @@ NSString *gMenuTitle = @"GS";
     
     self.statusItem = [[NSStatusBar systemStatusBar]
                        statusItemWithLength: NSVariableStatusItemLength];
-    [self.statusItem setHighlightMode: YES];
     [self.statusItem setMenu: GSMenu];
-    [self.statusItem setTitle: gMenuTitle];
-  
+    self.statusItem.button.title = gMenuTitle;
+    
     /*
         Get the current interface setting mode - light / dark. Based on:
         https://saagarjha.com/blog/2018/12/01/scheduling-dark-mode/
@@ -107,6 +108,10 @@ NSString *gMenuTitle = @"GS";
         }
     }
     
+    /* get the current value of the main display's brightness setting */
+    
+    brightness = getMainDisplayBrightness();
+    
     /*
         Create a preference group to share preferences with the login
         helper app:
@@ -125,6 +130,8 @@ NSString *gMenuTitle = @"GS";
     [GSMenuItemToggleNightShift setAction: @selector(actionToggleNightShift:)];
     [GSMenuItemNightShiftSlider setAction:
         @selector(actionNightShiftSliderValueChanged:)];
+    [GSMenuItemBrightnessSlider setAction:
+        @selector(actionBrightnessSliderValueChanged:)];
     [GSMenuItemToggleDarkMode setAction: @selector(actionToggleDarkMode:)];
     
     /*
@@ -135,15 +142,22 @@ NSString *gMenuTitle = @"GS";
            user preferences
         2. The Night Shift slider should be enabled only when Night Shift
            is enabled.
-        3. The value of the Night Shift slider should be scaled up to between
-           1 and 100
+        3. The value of the Night Shift and the Brightness sliders should
+           be scaled up to between 1 and 100
      */
 
-    [GSMenuItemToggleGrayScale setState: (grayScale ? NSOnState : NSOffState)];
-    [GSMenuItemToggleNightShift setState: (nightShift ? NSOnState : NSOffState)];
+    [GSMenuItemToggleGrayScale setState: (grayScale ?
+                                          NSControlStateValueOn :
+                                          NSControlStateValueOff)];
+    [GSMenuItemToggleNightShift setState: (nightShift ?
+                                           NSControlStateValueOn :
+                                           NSControlStateValueOff)];
     [GSMenuItemNightShiftSlider setEnabled: nightShift];
     [GSMenuItemNightShiftSlider setFloatValue: nightShiftStrength*100];
-    [GSMenuItemToggleDarkMode setState: (darkMode ? NSOnState : NSOffState)];
+    [GSMenuItemBrightnessSlider setFloatValue: brightness*100];
+    [GSMenuItemToggleDarkMode setState: (darkMode ?
+                                         NSControlStateValueOn :
+                                         NSControlStateValueOff)];
     
     /*
         Set the display mode based on the user's preferences:
@@ -212,7 +226,9 @@ NSString *gMenuTitle = @"GS";
         https://stackoverflow.com/questions/2176639/how-to-add-a-check-mark-to-an-nsmenuitem
      */
     
-    [GSMenuItemToggleGrayScale setState: (grayScale ? NSOnState : NSOffState)];
+    [GSMenuItemToggleGrayScale setState: (grayScale ?
+                                          NSControlStateValueOn :
+                                          NSControlStateValueOff)];
     
     /*
         Toggle the display mode:
@@ -239,7 +255,9 @@ NSString *gMenuTitle = @"GS";
         https://stackoverflow.com/questions/2176639/how-to-add-a-check-mark-to-an-nsmenuitem
      */
     
-    [GSMenuItemToggleDarkMode setState: (darkMode ? NSOnState : NSOffState)];
+    [GSMenuItemToggleDarkMode setState: (darkMode ?
+                                         NSControlStateValueOn :
+                                         NSControlStateValueOff)];
     
     /*
         Toggle darkmode:
@@ -255,7 +273,6 @@ NSString *gMenuTitle = @"GS";
                              is clicked
  */
 
-
 - (void) actionToggleNightShift: (id)sender
 {
     /* Toggle the setting for whether nightsift is enabled */
@@ -268,7 +285,9 @@ NSString *gMenuTitle = @"GS";
         https://stackoverflow.com/questions/2176639/how-to-add-a-check-mark-to-an-nsmenuitem
      */
     
-    [GSMenuItemToggleNightShift setState: (nightShift ? NSOnState : NSOffState)];
+    [GSMenuItemToggleNightShift setState: (nightShift ?
+                                           NSControlStateValueOn :
+                                           NSControlStateValueOff)];
 
     /* Toogle whether the slider is enabled */
     
@@ -276,6 +295,11 @@ NSString *gMenuTitle = @"GS";
 
     [self updateNightShift];
 }
+
+/*
+    actionNightShiftSliderValueChanged - actions to take when the nightshift slider's
+                                         value changes
+ */
 
 - (void) actionNightShiftSliderValueChanged: (id)sender
 {
@@ -322,6 +346,46 @@ NSString *gMenuTitle = @"GS";
     }
     
     [GSBlueLightClient setEnabled: nightShift];
+}
+
+/*
+    actionBrightnessSliderValueChanged - actions to take when the brightness slider's
+                                         value changes
+ */
+
+- (void) actionBrightnessSliderValueChanged: (id)sender
+{
+    NSEvent *event = nil;
+    
+    event = [[NSApplication sharedApplication] currentEvent];
+
+    /*
+        Update the brightness strength only when the user has finished
+        selecting the new value.  See:
+    https://stackoverflow.com/questions/9416903/determine-when-nsslider-knob-is-let-go-in-continuous-mode#
+     */
+    
+    switch (event.type)
+    {
+        case NSEventTypeLeftMouseUp:
+        case NSEventTypeRightMouseUp:
+
+            /*
+                Get the requested brightness strength and scale it down to
+                between 0 and 1
+             */
+            
+            brightness = [GSMenuItemBrightnessSlider floatValue] / 100;
+            if (brightness <= 0.0)
+            {
+                brightness = 0.1;
+            }
+            setMainDisplayBrightness(brightness);
+            
+            break;
+        default:
+            break;
+    }
 }
 
 @end

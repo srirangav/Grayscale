@@ -18,6 +18,7 @@
 		2661A7E921F16A9B00B38AE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2661A7E821F16A9B00B38AE0 /* Assets.xcassets */; };
 		2661A7EC21F16A9B00B38AE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */; };
 		2661A7EF21F16A9B00B38AE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661A7EE21F16A9B00B38AE0 /* main.m */; };
+		268C601C22ED7FAC00B38AE0 /* DisplayBrightness.c in Sources */ = {isa = PBXBuildFile; fileRef = 268C601B22ED7FAC00B38AE0 /* DisplayBrightness.c */; };
 		26C4556422E30ACE00B38AE0 /* SkyLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C4556322E30ACE00B38AE0 /* SkyLight.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		2661A7EE21F16A9B00B38AE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2661A7F021F16A9B00B38AE0 /* Grayscale.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Grayscale.entitlements; sourceTree = "<group>"; };
 		267BC38622E671EF00B38AE0 /* CBBlueLightClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBlueLightClient.h; sourceTree = "<group>"; };
+		268C601A22ED7FAC00B38AE0 /* DisplayBrightness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayBrightness.h; sourceTree = "<group>"; };
+		268C601B22ED7FAC00B38AE0 /* DisplayBrightness.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DisplayBrightness.c; sourceTree = "<group>"; };
 		26BFB658220035C400B38AE0 /* Prefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefs.h; path = Grayscale/Prefs.h; sourceTree = SOURCE_ROOT; };
 		26C4556322E30ACE00B38AE0 /* SkyLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyLight.framework; path = ../../../../../../System/Library/PrivateFrameworks/SkyLight.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,11 +133,13 @@
 				2661A7E521F16A9900B38AE0 /* AppDelegate.h */,
 				2661A7E621F16A9900B38AE0 /* AppDelegate.m */,
 				267BC38622E671EF00B38AE0 /* CBBlueLightClient.h */,
-				2661A7E821F16A9B00B38AE0 /* Assets.xcassets */,
+				268C601A22ED7FAC00B38AE0 /* DisplayBrightness.h */,
+				268C601B22ED7FAC00B38AE0 /* DisplayBrightness.c */,
 				2661A7EA21F16A9B00B38AE0 /* MainMenu.xib */,
-				2661A7ED21F16A9B00B38AE0 /* Info.plist */,
 				2661A7EE21F16A9B00B38AE0 /* main.m */,
 				2661A7F021F16A9B00B38AE0 /* Grayscale.entitlements */,
+				2661A7ED21F16A9B00B38AE0 /* Info.plist */,
+				2661A7E821F16A9B00B38AE0 /* Assets.xcassets */,
 			);
 			path = Grayscale;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2661A7EF21F16A9B00B38AE0 /* main.m in Sources */,
+				268C601C22ED7FAC00B38AE0 /* DisplayBrightness.c in Sources */,
 				2661A7E721F16A9900B38AE0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.Grayscale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -495,7 +501,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = org.calalum.ranga.Grayscale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

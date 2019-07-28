@@ -1,12 +1,13 @@
 /*
-    Grayscale - AppDelegate.h
+    Grayscale - DisplayBrightness.h
+ 
+    Based on display-brightness.c:
+    https://github.com/pirate/mac-keyboard-brightness/blob/master/display-brightness.c
  
     History:
  
-    v. 1.0.0 (01/17/2019) - Initial version
-    v. 1.1.0 (07/22/2019) - Add night shift and dark mode support
-    v. 1.1.1 (07/27/2019) - Add brightness support
-
+    v. 1.0.0 (07/27/2019) - Initial version
+ 
     Copyright (c) 2019 Sriranga R. Veeraraghavan <ranga@calalum.org>
  
     Permission is hereby granted, free of charge, to any person obtaining
@@ -28,32 +29,10 @@
     DEALINGS IN THE SOFTWARE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import "CBBlueLightClient.h"
+#ifndef DisplayBrightness_h
+#define DisplayBrightness_h
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
-{
-    IBOutlet NSMenu *GSMenu;
-    IBOutlet NSMenuItem *GSMenuItemToggleGrayScale;
-    IBOutlet NSMenuItem *GSMenuItemToggleNightShift;
-    IBOutlet NSSlider *GSMenuItemNightShiftSlider;
-    IBOutlet NSMenuItem *GSMenuItemToggleDarkMode;
-    IBOutlet NSSlider *GSMenuItemBrightnessSlider;
-    IBOutlet NSMenuItem *GSMenuItemQuit;
-    NSUserDefaults *GSDefaults;
-    CBBlueLightClient *GSBlueLightClient;
-    float nightShiftStrength;
-    float brightness;
-    BOOL grayScale;
-    BOOL nightShift;
-    BOOL darkMode;
-}
+float getMainDisplayBrightness(void);
+void  setMainDisplayBrightness(float brightness);
 
-- (void) actionToggleGrayScale: (id)sender;
-- (void) actionToggleNightShift: (id)sender;
-- (void) actionNightShiftSliderValueChanged: (id)sender;
-- (void) updateNightShift;
-- (void) actionToggleDarkMode: (id)sender;
-- (void) actionBrightnessSliderValueChanged: (id)sender;
-
-@end
+#endif /* DisplayBrightness_h */
