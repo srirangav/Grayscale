@@ -55,5 +55,6 @@
 - (void) updateNightShift;
 - (void) actionToggleDarkMode: (id)sender;
 - (void) actionBrightnessSliderValueChanged: (id)sender;
--(void) updateBrightness: (NSNumber *)brightnessStrength;
+- (void) updateBrightness: (NSNumber *)brightnessStrength;
+
 @end
