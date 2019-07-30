@@ -414,7 +414,7 @@ NSString *gMenuTitle = @"GS";
                        the night shift setting has been changed
  */
 
--(void) updateBrightness: (NSNumber *)brightnessStrength
+- (void) updateBrightness: (NSNumber *)brightnessStrength
 {
     float reqBrightness = 1.0;
     
