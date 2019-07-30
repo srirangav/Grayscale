@@ -1,7 +1,7 @@
 README
 ------
 
-Grayscale v1.1.0
+Grayscale v1.1.1
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Graysale is a menubar application to toggle the display between grayscale
