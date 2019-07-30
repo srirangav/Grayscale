@@ -325,6 +325,7 @@ NSString *gMenuTitle = @"GS";
             
             nightShiftStrength = [GSMenuItemNightShiftSlider floatValue] / 100;
             [self updateNightShift];
+            
             break;
         default:
             break;
@@ -342,10 +343,26 @@ NSString *gMenuTitle = @"GS";
     
     if (nightShift && nightShiftStrength != 0.0)
     {
+        /* ensure that the max night shift strength is 1.0 (the max) */
+        
+        if (nightShiftStrength > 1.0)
+        {
+            nightShiftStrength = 1.0;
+        }
+        
         [GSBlueLightClient setStrength: nightShiftStrength commit: TRUE];
     }
     
     [GSBlueLightClient setEnabled: nightShift];
+    
+    /*
+        Reset the screen's brightness in a background thread:
+    https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/CreatingThreads/CreatingThreads.html#//apple_ref/doc/uid/10000057i-CH15-SW19
+     */
+    
+    [NSThread detachNewThreadSelector: @selector(updateBrightness:)
+                             toTarget: self
+                           withObject: [NSNumber numberWithFloat: brightness]];
 }
 
 /*
@@ -371,21 +388,58 @@ NSString *gMenuTitle = @"GS";
         case NSEventTypeRightMouseUp:
 
             /*
-                Get the requested brightness strength and scale it down to
-                between 0 and 1
+                Set the brightness strength to the slider's value scaled
+                down to between 0.1 and 1
              */
             
             brightness = [GSMenuItemBrightnessSlider floatValue] / 100;
             if (brightness <= 0.0)
             {
                 brightness = 0.1;
+            } else if (brightness > 1.0)
+            {
+                brightness = 1.0;
             }
+            
             setMainDisplayBrightness(brightness);
             
             break;
         default:
             break;
     }
+}
+
+/*
+    updateBrightness - background method to reset the brightness after
+                       the night shift setting has been changed
+ */
+
+-(void) updateBrightness: (NSNumber *)brightnessStrength
+{
+    float reqBrightness = 1.0;
+    
+    if (brightnessStrength != nil)
+    {
+        reqBrightness = [brightnessStrength floatValue];
+    }
+    
+    /* make sure brightness is between 0.1 and 1 */
+    
+    if (reqBrightness <= 0.0)
+    {
+        reqBrightness = 0.1;
+    } else if (reqBrightness > 1.0)
+    {
+        reqBrightness = 1.0;
+    }
+
+    /*
+        wait for 2 seconds before updating the brightness to give time
+        for the night shift setting to be commited
+     */
+    
+    sleep(2);
+    setMainDisplayBrightness(reqBrightness);
 }
 
 @end

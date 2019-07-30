@@ -3,7 +3,7 @@
  
     Based on:
  
-    $ strings /System/Library/PrivateFrameworks/CoreBrightness.framework/Versions/A/CoreBrightness
+    $ strings /System/Library/PrivateFrameworks/CoreBrightness.framework/CoreBrightness
 
     See also:
  
