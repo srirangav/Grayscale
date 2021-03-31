@@ -1,7 +1,7 @@
 README
 ------
 
-Grayscale v1.1.1
+Grayscale v1.1.2
 By Sriranga Veeraraghavan <ranga@calalum.org>
 
 Graysale is a menubar application to toggle the display between grayscale
@@ -24,6 +24,7 @@ Please see LICENSE.txt
 
 History:
 
+v. 1.1.2 (03/31/2021) - Build on Big Sur
 v. 1.1.1 (07/27/2019) - Add brightness support, fixes for MacOSX 10.14
 v. 1.1.0 (07/22/2019) - Add night shift and dark mode support
 v. 1.0.1 (06/30/2019) - Update for app notarization
