@@ -1,6 +1,7 @@
 # Xcode
 Makefile
 .DS_Store
+Archives/
 build/
 *.pbxuser
 !default.pbxuser
